@@ -13,7 +13,12 @@ export default function Page(props) {
   }}>
     <Header name={props.name}/>
     <div style={{
-      flexGrow: 1
+      flexGrow: 1,
+      position: 'relative',
+      flexGrow: 1,
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
     }}>
       { props.children }
     </div>

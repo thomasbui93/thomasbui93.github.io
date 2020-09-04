@@ -13,6 +13,6 @@
 
 .header-nav-item {
   display: flex;
-  justify-items: center;
+  justify-content: center;
   flex-flow: column;
 }

@@ -1,0 +1,18 @@
+.intro {
+  color: #333;
+  background-color: rgb(237, 224, 207);
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.intro h1 {
+  font-size: 4.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  line-height: normal;
+}

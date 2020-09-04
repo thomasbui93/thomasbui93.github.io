@@ -1,6 +1,5 @@
 import React from "react"
 import Logo from "./Logo"
-import { mediaQuery } from '@zendeskgarden/react-theming'
 import StyledLink from "../elements/StyledLink"
 import style from "./header.module.css"
 
