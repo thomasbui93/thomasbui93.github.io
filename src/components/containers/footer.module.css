@@ -1,0 +1,19 @@
+.footer {
+  flex-shrink: 0;
+  background-color: #333;
+  padding: 8px 16px;
+  color: white;
+  display: flex;
+  flex-flow: column;
+}
+
+.copyright {
+  border-top: 1px solid grey;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 16px;
+}
+
+.external {
+  display: flex;
+}

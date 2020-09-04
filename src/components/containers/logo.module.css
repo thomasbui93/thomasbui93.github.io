@@ -1,0 +1,19 @@
+.logo-container {
+  display: flex;
+  transform: scale(.75);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 29px solid transparent;
+  border-right: 29px solid transparent;
+  border-bottom: 50px solid #68A063;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #3C873A;
+}
