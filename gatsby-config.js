@@ -5,6 +5,8 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  proxy: {
+    prefix: "/api",
+    url: "https://dug-2020.herokuapp.com",
+  },
 }

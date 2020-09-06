@@ -9,7 +9,7 @@ const NavBar = () => (
       <StyledLink to="/cv">Resume</StyledLink>
     </div>
     <div className={style.headerNavItem}>
-      <StyledLink to="/me">About Me</StyledLink>
+      <StyledLink to="/about">About Me</StyledLink>
     </div>
   </nav>
 )

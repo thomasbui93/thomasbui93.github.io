@@ -13,6 +13,9 @@ export default function Page(props) {
     home: {
       title: "Khoa Bui, Software Engineer",
     },
+    about: {
+      title: "About me",
+    },
   }
 
   return (
