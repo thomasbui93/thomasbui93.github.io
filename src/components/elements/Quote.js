@@ -7,7 +7,7 @@ export default function Quote() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://dug-2020.herokuapp.com/api/greeting")
+      const response = await fetch("https://dug2020.herokuapp.com/api/greeting")
       const json = await response.json()
 
       setData(json.quote)
