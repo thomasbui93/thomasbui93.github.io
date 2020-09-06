@@ -10,7 +10,9 @@ const Intro = () => (
 )
 
 export default function Home() {
-  return <Page name="home">
-    <Intro />
-  </Page>
+  return (
+    <Page name="home">
+      <Intro />
+    </Page>
+  )
 }

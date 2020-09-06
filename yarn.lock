@@ -1926,6 +1926,13 @@
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^0.5.4"
 
+"@zendeskgarden/container-schedule@^1.3.1":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-schedule/-/container-schedule-1.3.5.tgz#284e58b2f572c0af9e0e06cdaa48ec4f791eb6b2"
+  integrity sha512-2/nOtHpuChXovVqJLhjmyiifUNNEY9AVnW23xAUZ3cXTpiOQuLcaXDr8tFmrK8CrmWL05mJCK3eY95CXoSMdRA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+
 "@zendeskgarden/container-selection@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.6.tgz#9962eefdb8debf98eb01741d4aaf8e10b80b1efc"
@@ -1961,6 +1968,21 @@
   dependencies:
     "@zendeskgarden/container-buttongroup" "^0.3.1"
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
+    polished "^3.5.1"
+
+"@zendeskgarden/react-grid@^8.21.2":
+  version "8.21.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-grid/-/react-grid-8.21.2.tgz#c1012c0a502d6f680b5df23df8718b6ac9e87e2a"
+  integrity sha512-PAC3ChIqT2L9c9mmJBKiBFcSNmKEjcNa+Aa/neQretyrRpXPbnoUiidQsc9gHuOs3ZAq025QNqgvfmiPOZulUQ==
+  dependencies:
+    polished "^3.5.1"
+
+"@zendeskgarden/react-loaders@^8.21.2":
+  version "8.21.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-loaders/-/react-loaders-8.21.2.tgz#faad5ff4ba6928175fd5d1da182bab156c9b680c"
+  integrity sha512-pmec6NPrHvzzL4E5elCwiJ3k8W44LVOKalL655yWW7tUDH8bas2q7PhGfADo0IJ3sHmjYoN24DNF8L4AJU5cBQ==
+  dependencies:
+    "@zendeskgarden/container-schedule" "^1.3.1"
     polished "^3.5.1"
 
 "@zendeskgarden/react-theming@^8.21.2":
@@ -5539,11 +5561,6 @@ gatsby-page-utils@^0.2.21:
     glob "^7.1.6"
     lodash "^4.17.15"
     micromatch "^3.1.10"
-
-gatsby-plugin-google-fonts@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-1.0.1.tgz#d71054f7bf207b9a8da227380369e18e6f4e0201"
-  integrity sha512-p1NVkn27GUnDA5qHM+Z4cCcLCJIardzZXMon3640sT4xuL/AZJbsx3HEt2KY/5oZu0UXIkytkxzV2Da4rQeUIg==
 
 gatsby-plugin-page-creator@^2.3.23:
   version "2.3.23"
@@ -9715,6 +9732,11 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+react-fast-compare@^3.1.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
 react-focus-lock@^2.3.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.4.1.tgz#e842cc93da736b5c5d331799012544295cbcee4f"
@@ -9726,6 +9748,16 @@ react-focus-lock@^2.3.1:
     react-clientside-effect "^1.2.2"
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
+
+react-helmet@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
+  integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.7.2"
+    react-fast-compare "^3.1.1"
+    react-side-effect "^2.1.0"
 
 react-hot-loader@^4.12.21:
   version "4.12.21"
@@ -9801,6 +9833,11 @@ react-remove-scroll@^2.3.0:
     tslib "^1.0.0"
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
+
+react-side-effect@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
+  integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
 react-style-singleton@^2.1.0:
   version "2.1.0"
