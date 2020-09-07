@@ -29,7 +29,15 @@
   font-weight: bold;
 }
 
+.greeting {
+  font-family: Georgia, serif;
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (min-width: 720px) {
+  .greeting,
   .blockquote {
     font-size: 2.4rem;
   }

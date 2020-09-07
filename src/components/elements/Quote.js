@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react"
 import fetch from "node-fetch"
 import style from "./quote.module.css"
+import ReactTypingEffect from 'react-typing-effect'
 
 export default function Quote() {
-  const [data, setData] = useState(null)
+  const [quote, setQuote] = useState(null)
+  const [greeter, setGreeter] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://dug2020.herokuapp.com/api/greeting")
+      const response = await fetch(process.env.QUOTE_URL || "https://dug2020.herokuapp.com/api/greeting")
       const json = await response.json()
 
-      setData(json.quote)
+      setQuote(json.quote)
+      setGreeter(json.greeter.split('!')[0] + '!')
     }
     fetchData()
   }, [])
 
-  return data ? (
+  return quote && greeter ? (
+    <>
+    <div className={style.greeting}>
+      <ReactTypingEffect text={greeter}/>
+    </div>
     <div
       style={{
         display: "flex",
@@ -23,13 +30,14 @@ export default function Quote() {
       }}
     >
       <div className={style.blockquoteContainer}>
-        <div className={style.blockquote}>{data.message}</div>
+        <div className={style.blockquote}>{quote.message}</div>
         <div className={style.blockquoteAuthor}>
           {" "}
-          - {data.author ? data.author : "Unknown"} -{" "}
+          - {quote.author ? quote.author : "Unknown"} -{" "}
         </div>
       </div>
     </div>
+    </>
   ) : (
     ""
   )
