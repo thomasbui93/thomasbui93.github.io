@@ -1,6 +1,6 @@
 {
   "name": "personal-page",
-  "private": true,
+  "private": false,
   "description": "Gatsby portfolio",
   "version": "0.1.0",
   "license": "0BSD",
@@ -27,7 +27,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
-    "react-typing-effect": "^2.0.3",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
