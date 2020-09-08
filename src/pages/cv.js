@@ -8,6 +8,7 @@ export default function CV() {
   return (
     <Page name="cv">
       <iframe
+        title="cv-iframe"
         onLoad={() => setLoading(false)}
         style={{
           width: "100vw",
