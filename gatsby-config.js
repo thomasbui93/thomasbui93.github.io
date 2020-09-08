@@ -18,7 +18,26 @@ module.exports = {
         icon: `src/images/logo.png`
       },
     },
-    `gatsby-plugin-offline`
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/about/*`],
+        runtimeCaching: [{
+          urlPattern: /^https:\/\/dug2020\.herokuapp\.com\/api\/greeting/,
+          handler: 'cacheFirst',
+          options: {
+            cacheableResponse: {
+              statuses: [0, 200]
+            },
+            cacheName: 'dug2020-greeting',
+            expiration: {
+              maxAgeSeconds: 60 * 60,
+              maxEntries: 30
+            }
+          }
+        }]
+      }
+    }
   ],
   proxy: {
     prefix: "/api",
