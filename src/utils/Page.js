@@ -16,6 +16,9 @@ export default function Page(props) {
     about: {
       title: "About me",
     },
+    notFound: {
+      title: "Page not found"
+    }
   }
 
   return (
