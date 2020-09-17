@@ -40,6 +40,21 @@ module.exports = {
         ],
       },
     },
+    {
+
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-178235268-1",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        defer: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "buidangkhoa.com",
+      },
+    }
   ],
   proxy: {
     prefix: "/api",
