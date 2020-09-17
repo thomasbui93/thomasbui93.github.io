@@ -17,8 +17,8 @@ export default function Page(props) {
       title: "About me",
     },
     notFound: {
-      title: "Page not found"
-    }
+      title: "Page not found",
+    },
   }
 
   return (

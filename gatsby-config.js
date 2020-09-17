@@ -15,29 +15,31 @@ module.exports = {
         background_color: `#3C873A`,
         theme_color: `#68A063`,
         display: `standalone`,
-        icon: `src/images/logo.png`
+        icon: `src/images/logo.png`,
       },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [`/about/*`],
-        runtimeCaching: [{
-          urlPattern: /^https:\/\/dug2020\.herokuapp\.com\/api\/greeting/,
-          handler: 'cacheFirst',
-          options: {
-            cacheableResponse: {
-              statuses: [0, 200]
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/dug2020\.herokuapp\.com\/api\/greeting/,
+            handler: "cacheFirst",
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              cacheName: "dug2020-greeting",
+              expiration: {
+                maxAgeSeconds: 60 * 60,
+                maxEntries: 30,
+              },
             },
-            cacheName: 'dug2020-greeting',
-            expiration: {
-              maxAgeSeconds: 60 * 60,
-              maxEntries: 30
-            }
-          }
-        }]
-      }
-    }
+          },
+        ],
+      },
+    },
   ],
   proxy: {
     prefix: "/api",
