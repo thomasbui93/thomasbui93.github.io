@@ -41,7 +41,7 @@ export default function Page(props) {
             position: "relative",
             flexGrow: 1,
             display: "flex",
-            justifyContent: "center",
+            //justifyContent: "center",
             flexDirection: "column",
           }}
         >

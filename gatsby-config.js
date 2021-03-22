@@ -19,12 +19,27 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto Mono`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Roboto`,
+            subsets: [`latin`]
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [`/about/*`],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/dug2020\.herokuapp\.com\/api\/greeting/,
+            urlPattern: /^https:\/\/griffin-me\.herokuapp\.com\/api\/poem/,
             handler: "cacheFirst",
             options: {
               cacheableResponse: {
@@ -41,7 +56,6 @@ module.exports = {
       },
     },
     {
-
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-178235268-1",
@@ -54,10 +68,10 @@ module.exports = {
         siteSpeedSampleRate: 10,
         cookieDomain: "buidangkhoa.com",
       },
-    }
+    },
   ],
   proxy: {
     prefix: "/api",
-    url: "https://dug-2020.herokuapp.com",
+    url: "https://griffin-me.herokuapp.com",
   },
 }
