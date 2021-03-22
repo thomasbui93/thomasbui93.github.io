@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from "react"
-import fetch from "node-fetch"
 import style from "./quote.module.css"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
+import getQuote from "../../service/quote"
 
 export default function Quote() {
   const [isLoading, setLoad] = useState(true)
   const [quote, setQuote] = useState(null)
-  const [greeter, setGreeter] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        process.env.QUOTE_URL || "https://dug2020.herokuapp.com/api/greeting"
-      )
-      const json = await response.json()
+      const quote = await getQuote();
 
-      setQuote(json.quote)
-      setGreeter(json.greeter.split("!")[0] + "!")
+      setQuote(quote)
       setLoad(false)
     }
     fetchData()
@@ -25,7 +20,6 @@ export default function Quote() {
 
   return !isLoading ? (
     <div className={style.quoteContainer}>
-      <div className={style.greeting}>{greeter}</div>
       <div
         style={{
           display: "flex",
@@ -34,10 +28,7 @@ export default function Quote() {
       >
         <div className={style.blockquoteContainer}>
           <div className={style.blockquote}>{quote.message}</div>
-          <div className={style.blockquoteAuthor}>
-            {" "}
-            - {quote.author ? quote.author : "Unknown"} -{" "}
-          </div>
+          <div className={style.blockquoteAuthor}>{quote.author}</div>
         </div>
       </div>
     </div>
