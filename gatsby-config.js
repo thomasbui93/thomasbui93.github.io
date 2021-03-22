@@ -25,7 +25,7 @@ module.exports = {
           {
             family: `EB Garamond`,
             variable: true,
-            weights: [`400`, `500`],
+            weights: ["400..500"],
           },
         ],
       },
@@ -36,13 +36,13 @@ module.exports = {
         precachePages: [`/about/*`],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/griffin-me\.herokuapp\.com\/api\/poem/,
+            urlPattern: /^https:\/\/griffin-me\.herokuapp\.com\/api\/poem\/random/,
             handler: "cacheFirst",
             options: {
               cacheableResponse: {
                 statuses: [0, 200],
               },
-              cacheName: "dug2020-greeting",
+              cacheName: "dug2020-poem",
               expiration: {
                 maxAgeSeconds: 60 * 60,
                 maxEntries: 30,
