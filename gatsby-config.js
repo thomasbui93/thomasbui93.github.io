@@ -24,11 +24,11 @@ module.exports = {
         fonts: [
           {
             family: `Roboto Mono`,
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
           {
             family: `Roboto`,
-            subsets: [`latin`]
+            subsets: [`latin`],
           },
         ],
       },

@@ -3,11 +3,11 @@ import fetch from "node-fetch"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
 import { Button } from "@zendeskgarden/react-buttons"
-import {useSpring, animated} from 'react-spring'
+import { useSpring, animated } from "react-spring"
 import style from "./poem.module.css"
 
 export default function Poem() {
-  const props = useSpring({opacity: 1, from: {opacity: 0}})
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } })
   const [isLoading, setLoad] = useState(false)
   const [poems, setPoems] = useState([])
   const [isShowTheRest, setShowTheRest] = useState(false)
@@ -25,15 +25,15 @@ export default function Poem() {
     setShowTheRest(false)
   }
 
-  const isShowContent = (index) => {
-    if (index === 0) return true;
-    if (index > 0 && isShowTheRest) return true;
+  const isShowContent = index => {
+    if (index === 0) return true
+    if (index > 0 && isShowTheRest) return true
     return false
   }
 
   const createPoem = ({ title, content }, index, author) => {
     if (!content) return ""
-    if (!isShowContent(index)) return "" 
+    if (!isShowContent(index)) return ""
 
     const formattedContent = stripHtml(content)
       .split("\n")
@@ -42,11 +42,18 @@ export default function Poem() {
       <animated.div style={props}>
         <div className={style.poem} key={index}>
           <div className={style.title}>{title}</div>
-          { index === 0 ? <div className={style.poet}>{author}</div> : ""}
+          {index === 0 ? <div className={style.poet}>{author}</div> : ""}
           <div className={style.body}>{formattedContent}</div>
-          { index === 0 ? <div className={style.toggleTranslation} onClick={toggleTranslation}>
-            { isShowTheRest ? "Collapse": "Translate"}
-          </div> : ""}
+          {index === 0 ? (
+            <div
+              className={style.toggleTranslation}
+              onClick={toggleTranslation}
+            >
+              {isShowTheRest ? "Collapse" : "Translate"}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </animated.div>
     )
@@ -60,11 +67,11 @@ export default function Poem() {
     return tmp.textContent || tmp.innerText || ""
   }
 
-  const reOrderPoemContent = (poems) => {
-    if (poems.length < 3) return poems.reverse();
-    const [chinese, original, translated] = poems;
+  const reOrderPoemContent = poems => {
+    if (poems.length < 3) return poems.reverse()
+    const [chinese, original, translated] = poems
 
-    return [original, translated, chinese];
+    return [original, translated, chinese]
   }
 
   return (
@@ -72,7 +79,9 @@ export default function Poem() {
       {!isLoading ? (
         <div className={style.poemListing}>
           {poems && poems.content
-            ? reOrderPoemContent(poems.content).map((poem, index) => createPoem(poem, index, poems.author))
+            ? reOrderPoemContent(poems.content).map((poem, index) =>
+                createPoem(poem, index, poems.author)
+              )
             : ""}
         </div>
       ) : (
@@ -92,7 +101,7 @@ export default function Poem() {
           </Row>
         </div>
       )}
-       <Button onClick={fetchData} size="medium">
+      <Button onClick={fetchData} size="medium">
         Fetch poem
       </Button>
     </div>
