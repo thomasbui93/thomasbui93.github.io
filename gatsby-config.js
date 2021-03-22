@@ -23,14 +23,23 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Roboto Mono`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Roboto`,
-            subsets: [`latin`],
+            family: `EB Garamond`,
+            variants: [`400`, `500`],
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: `EB Garamond`,
+              variants: [`400`, `500`],
+            },
+          ],
+        },
       },
     },
     {
