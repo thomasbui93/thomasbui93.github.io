@@ -25,7 +25,7 @@ module.exports = {
           {
             family: `EB Garamond`,
             variable: true,
-            weights: ['400..500']
+            weights: ["400..500"],
           },
         ],
       },
