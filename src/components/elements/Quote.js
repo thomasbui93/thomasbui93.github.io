@@ -10,7 +10,7 @@ export default function Quote() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const quote = await getQuote();
+      const quote = await getQuote()
 
       setQuote(quote)
       setLoad(false)

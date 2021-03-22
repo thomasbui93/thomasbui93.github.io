@@ -5,22 +5,22 @@ const getQuote = async () => {
     const response = await fetch(
       process.env.QUOTE_URL || "https://quotes.rest/qod?language=en"
     )
-  
+
     const json = await response.json()
-  
-    const quoteData = json.contents.quotes[0];
-  
+
+    const quoteData = json.contents.quotes[0]
+
     return {
       message: quoteData.quote,
-      author: quoteData.author
+      author: quoteData.author,
     }
   } catch (ex) {
-    console.log("Failed to fetch quote: ", ex.message);
+    console.log("Failed to fetch quote: ", ex.message)
     return {
       message: "In the end, it does not matter.",
-      author: "Unknown"
+      author: "Unknown",
     }
   }
 }
 
-export default getQuote;
+export default getQuote
