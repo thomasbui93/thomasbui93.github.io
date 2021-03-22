@@ -19,16 +19,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
-        fonts: {
-          google: [
-            {
-              family: `EB Garamond`,
-              variants: [`400`, `500`],
-            },
-          ],
-        },
+        fonts: [
+          {
+            family: `EB Garamond`,
+            variable: true,
+            weights: [`400`, `500`],
+          },
+        ],
       },
     },
     {

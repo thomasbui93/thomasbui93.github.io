@@ -22,6 +22,7 @@
     "@zendeskgarden/react-typography": "^8.21.2",
     "gatsby": "^2.24.50",
     "gatsby-plugin-google-analytics": "^2.3.14",
+    "gatsby-plugin-google-fonts-v2": "0.0.6",
     "gatsby-plugin-manifest": "^2.4.27",
     "gatsby-plugin-offline": "^3.2.26",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
