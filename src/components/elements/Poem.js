@@ -104,7 +104,7 @@ export default function Poem() {
         </div>
       )}
       <Button onClick={fetchData} size="medium">
-        Fetch poem
+        Randomize poem
       </Button>
     </div>
   )
