@@ -14,9 +14,11 @@ export default function Poem() {
 
   const fetchData = async () => {
     setLoad(true)
+    const authors = ["L%C3%BD%20B%E1%BA%A1ch", "Nguy%E1%BB%85n%20Tr%C3%A3i"]
+    const author = authors[Math.floor(Math.random() * authors.length)]
     const response = await fetch(
       process.env.POEM_URL ||
-        "https://griffin-me.herokuapp.com/api/poem/random?author=L%C3%BD%20B%E1%BA%A1ch"
+        `https://griffin-me.herokuapp.com/api/poem/random?author=${author}`
     )
     const poems = await response.json()
 
@@ -102,7 +104,7 @@ export default function Poem() {
         </div>
       )}
       <Button onClick={fetchData} size="medium">
-        Fetch poem
+        Randomize poem
       </Button>
     </div>
   )
