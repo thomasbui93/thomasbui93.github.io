@@ -1,0 +1,9 @@
+.brief {
+  position: relative;
+  margin: auto;
+  background-color: white;
+  padding: 1rem;
+  max-width: 420px;
+  box-shadow: rgb(149 157 165 / 10%) 0px 8px 24px;
+  margin-top: 1rem;
+}

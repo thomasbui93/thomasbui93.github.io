@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@zendeskgarden/css-bedrock": "^8.0.1",
+    "@zendeskgarden/react-avatars": "^8.36.1",
     "@zendeskgarden/react-buttons": "^8.21.2",
     "@zendeskgarden/react-grid": "^8.21.2",
     "@zendeskgarden/react-loaders": "^8.21.2",
