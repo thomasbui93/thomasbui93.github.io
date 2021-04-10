@@ -1,17 +1,46 @@
-import React from "react"
+import React, { useState } from "react"
 import Page from "../utils/Page"
-import { Career } from "../components/elements/Career"
+import { Spinner } from "@zendeskgarden/react-loaders"
+import { Row, Col } from "@zendeskgarden/react-grid"
 
 export default function CV() {
+  const [isLoading, setLoading] = useState(true)
   return (
     <Page name="cv">
-      <div
+      <iframe
+        title="cv-iframe"
+        onLoad={() => setLoading(false)}
         style={{
-          padding: "1rem 0",
+          width: "100vw",
+          minHeight: "100vh",
         }}
-      >
-        <Career />
-      </div>
+        src="https://drive.google.com/file/d/1jCIRJHTbFxtZCMcyAFmmj09penl6yJ_D/preview"
+        width="100vw"
+        height="100vh"
+      />
+      {isLoading ? (
+        <div
+          style={{
+            zIndex: 1000,
+            position: "fixed",
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(255,255,255, 0.9)",
+          }}
+        >
+          <Row
+            justifyContent="center"
+            alignItems="center"
+            style={{ height: "100%" }}
+          >
+            <Col textAlign="center">
+              <Spinner size="64" />
+            </Col>
+          </Row>
+        </div>
+      ) : (
+        ""
+      )}
     </Page>
   )
 }

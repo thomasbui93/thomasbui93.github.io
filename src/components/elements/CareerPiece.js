@@ -21,10 +21,15 @@ export const CareerPiece = props => (
             </SM>
           </Col>
           <Col>
-            <Row>
+            <Row className={style.skillSet}>
               {props.skills.map((skill, index) => (
                 <div className={style.skillIcon}>
-                  <Avatar size="extrasmall" key={index}>
+                  <Avatar
+                    size="extrasmall"
+                    key={index}
+                    status="away"
+                    backgroundColor="white"
+                  >
                     <img
                       src={require(`../../images/skills/${skill.toLowerCase()}.${
                         isSvg(skill) ? "svg" : "png"

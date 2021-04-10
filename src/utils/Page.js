@@ -11,13 +11,16 @@ export default function Page(props) {
       title: "Khoa Bui's Resumé",
     },
     home: {
-      title: "Khoa Bui, Software Engineer",
+      title: "Khoa Bui, Software Engineer.",
     },
     about: {
-      title: "About me",
+      title: "About me.",
+    },
+    random: {
+      title: "Random stuff.",
     },
     notFound: {
-      title: "Page not found",
+      title: "Page not found.",
     },
   }
 

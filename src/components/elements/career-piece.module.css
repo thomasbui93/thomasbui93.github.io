@@ -23,6 +23,12 @@
 
 .skill-icon {
   margin-top: 1rem;
-  margin-right: .3rem;
+  margin-right: -0.5rem;
   cursor: pointer;
+  background-color: white;
+  transition: all 0.1s ease-in-out;
+}
+
+.skill-set:hover .skill-icon {
+  margin-right: 0.5rem;
 }

@@ -3,6 +3,8 @@ import { CareerPiece } from "./CareerPiece"
 import { Col } from "@zendeskgarden/react-grid"
 import style from "./career.module.css"
 import { Paragraph, SM, XL } from "@zendeskgarden/react-typography"
+import StyledLink from "./StyledLink"
+import { Button } from "@zendeskgarden/react-buttons"
 
 export const Career = () => {
   const careers = [
@@ -103,9 +105,14 @@ export const Career = () => {
         </div>
       </Col>
       <Col justifyContent="center">
-        {careers.map((career, index) => (
-          <CareerPiece key={index} {...career} />
+        {careers.map(career => (
+          <CareerPiece key={career.companyName} {...career} />
         ))}
+      </Col>
+      <Col justifyContent="center">
+        <StyledLink to="/cv">
+          <Button size="medium">My CV</Button>
+        </StyledLink>
       </Col>
     </div>
   )
