@@ -17,6 +17,7 @@ export const Career = () => {
       skills: [
         "Java",
         "Node.js",
+        "Scala",
         "Ruby",
         "React",
         "MySQL",
