@@ -33,7 +33,7 @@ export default function Poem() {
     return false
   }
 
-  const createPoem = ({ title, content }, index, author) => {
+  const createPoem = ({ title, content }, index, author, poemSize) => {
     if (!content) return ""
     if (!isShowContent(index)) return ""
 
@@ -46,7 +46,7 @@ export default function Poem() {
           <div className={style.title}>{title}</div>
           {index === 0 ? <div className={style.poet}>{author}</div> : ""}
           <div className={style.body}>{formattedContent}</div>
-          {index === 0 ? (
+          {index === 0 && poemSize > 1 ? (
             <div
               className={style.toggleTranslation}
               onClick={toggleTranslation}
@@ -82,7 +82,7 @@ export default function Poem() {
         <div className={style.poemListing}>
           {poems && poems.content
             ? reOrderPoemContent(poems.content).map((poem, index) =>
-                createPoem(poem, index, poems.author)
+                createPoem(poem, index, poems.author, poems.content.length)
               )
             : ""}
         </div>
