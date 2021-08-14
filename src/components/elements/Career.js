@@ -9,18 +9,20 @@ import { convertToDict } from "../../service/dict_mapper"
 import { useStaticQuery, graphql } from "gatsby"
 
 export const Career = () => {
-  const query = graphql`query MyQuery {
-    allFile {
-      edges {
-        node {
-          name
-          publicURL
+  const query = graphql`
+    query MyQuery {
+      allFile {
+        edges {
+          node {
+            name
+            publicURL
+          }
         }
       }
     }
-  }`
-  const imageNodes = useStaticQuery(query).allFile.edges;
-  const imageMapper = convertToDict(imageNodes);
+  `
+  const imageNodes = useStaticQuery(query).allFile.edges
+  const imageMapper = convertToDict(imageNodes)
 
   const careers = [
     {
@@ -70,7 +72,14 @@ export const Career = () => {
       companyIcon: imageMapper.get("smartbox").publicURL,
       start: "March 2018",
       end: "July 2019",
-      skills: [imageMapper.get("javascript"), imageMapper.get("vue.js"), imageMapper.get("typescript"), imageMapper.get("php"), imageMapper.get("mysql"), imageMapper.get("docker")],
+      skills: [
+        imageMapper.get("javascript"),
+        imageMapper.get("vue.js"),
+        imageMapper.get("typescript"),
+        imageMapper.get("php"),
+        imageMapper.get("mysql"),
+        imageMapper.get("docker"),
+      ],
       details: [
         {
           title: "Frontend Engineer",
@@ -90,7 +99,12 @@ export const Career = () => {
       companyIcon: imageMapper.get("vaimo").publicURL,
       start: "April 2016",
       end: "March 2018",
-      skills: [imageMapper.get("javascript"), imageMapper.get("php"), imageMapper.get("mysql"), imageMapper.get("redis")],
+      skills: [
+        imageMapper.get("javascript"),
+        imageMapper.get("php"),
+        imageMapper.get("mysql"),
+        imageMapper.get("redis"),
+      ],
       details: [
         {
           title: "Software Developer",

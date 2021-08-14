@@ -30,10 +30,7 @@ export const CareerPiece = props => (
                     status="away"
                     backgroundColor="white"
                   >
-                    <img
-                      src={skill.publicURL}
-                      alt={skill.name}
-                    />
+                    <img src={skill.publicURL} alt={skill.name} />
                   </Avatar>
                 </div>
               ))}

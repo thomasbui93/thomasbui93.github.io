@@ -45,7 +45,8 @@ module.exports = {
         precachePages: [`/about/*`],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/griffin-me\.herokuapp\.com\/api\/poem\/random/,
+            urlPattern:
+              /^https:\/\/griffin-me\.herokuapp\.com\/api\/poem\/random/,
             handler: "cacheFirst",
             options: {
               cacheableResponse: {
