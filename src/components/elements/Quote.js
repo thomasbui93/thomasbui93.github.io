@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import style from "./quote.module.css"
+import * as style from "./quote.module.css"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
 import getQuote from "../../service/quote"

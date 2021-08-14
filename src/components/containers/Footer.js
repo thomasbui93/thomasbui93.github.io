@@ -1,6 +1,6 @@
 import React from "react"
 import StyledLink from "../elements/StyledLink"
-import style from "./footer.module.css"
+import * as style from "./footer.module.css"
 
 export default function Footer() {
   return (

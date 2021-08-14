@@ -2,7 +2,7 @@ import { Col, Row } from "@zendeskgarden/react-grid"
 import { Avatar } from "@zendeskgarden/react-avatars"
 import { MD, SM, UnorderedList } from "@zendeskgarden/react-typography"
 import React from "react"
-import style from "./career-piece.module.css"
+import * as style from "./career-piece.module.css"
 
 export const CareerPiece = props => (
   <div className={style.container}>
@@ -31,10 +31,8 @@ export const CareerPiece = props => (
                     backgroundColor="white"
                   >
                     <img
-                      src={require(`../../images/skills/${skill.toLowerCase()}.${
-                        isSvg(skill) ? "svg" : "png"
-                      }`)}
-                      alt={skill}
+                      src={skill.publicURL}
+                      alt={skill.name}
                     />
                   </Avatar>
                 </div>
@@ -56,8 +54,6 @@ export const CareerPiece = props => (
     </Col>
   </div>
 )
-
-const isSvg = key => ["spinnaker", "vue.js"].indexOf(key.toLowerCase()) > -1
 
 export const JobPiece = props => (
   <Col className={style.jobPiece}>

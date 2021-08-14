@@ -4,7 +4,7 @@ import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
 import { Button } from "@zendeskgarden/react-buttons"
 import { useSpring, animated } from "react-spring"
-import style from "./poem.module.css"
+import * as style from "./poem.module.css"
 
 export default function Poem() {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } })

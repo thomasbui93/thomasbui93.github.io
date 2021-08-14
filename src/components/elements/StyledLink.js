@@ -1,6 +1,6 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import style from "./styled-link.module.css"
+import * as style from "./styled-link.module.css"
 
 export default function StyledLink(props) {
   return (

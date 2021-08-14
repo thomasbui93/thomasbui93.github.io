@@ -1,7 +1,7 @@
 import React from "react"
 import Logo from "./Logo"
 import StyledLink from "../elements/StyledLink"
-import style from "./header.module.css"
+import * as style from "./header.module.css"
 
 const NavBar = () => (
   <nav role="navigation" aria-label="global" className={style.headerNav}>
