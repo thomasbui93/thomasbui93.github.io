@@ -3,6 +3,10 @@
   width: 50px;
 }
 
+.company-icon > figure > img {
+  object-fit: fill!important;
+}
+
 .company-box {
   width: calc(100% - 50px);
 }

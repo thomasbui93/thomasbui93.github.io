@@ -1,35 +1,51 @@
 import React from "react"
 import { CareerPiece } from "./CareerPiece"
 import { Col } from "@zendeskgarden/react-grid"
-import style from "./career.module.css"
+import * as style from "./career.module.css"
 import { Paragraph, SM, XL } from "@zendeskgarden/react-typography"
 import StyledLink from "./StyledLink"
 import { Button } from "@zendeskgarden/react-buttons"
+import { convertToDict } from "../../service/dict_mapper"
+import { useStaticQuery, graphql } from "gatsby"
 
 export const Career = () => {
+  const query = graphql`
+    query MyQuery {
+      allFile {
+        edges {
+          node {
+            name
+            publicURL
+          }
+        }
+      }
+    }
+  `
+  const imageNodes = useStaticQuery(query).allFile.edges
+  const imageMapper = convertToDict(imageNodes)
+
   const careers = [
     {
       companyName: "Zendesk Inc.",
-      companyIcon:
-        "https://media-exp1.licdn.com/dms/image/C4D0BAQGtnStjF-vq9w/company-logo_100_100/0/1591210050428?e=1626307200&v=beta&t=f9057vSnyo1VSTRs2yx4Hrk19rXehXxl3Om-C2227ek",
+      companyIcon: imageMapper.get("zendesk").publicURL,
       start: "August 2019",
       end: "Present",
       skills: [
-        "Java",
-        "Node.js",
-        "Scala",
-        "Ruby",
-        "React",
-        "MySQL",
-        "Kafka",
-        "Redis",
-        "Kubernetes",
-        "Spinnaker",
-        "Docker",
+        imageMapper.get("java"),
+        imageMapper.get("node.js"),
+        imageMapper.get("scala"),
+        imageMapper.get("ruby"),
+        imageMapper.get("react"),
+        imageMapper.get("mysql"),
+        imageMapper.get("kafka"),
+        imageMapper.get("redis"),
+        imageMapper.get("kubernetes"),
+        imageMapper.get("spinnaker"),
+        imageMapper.get("docker"),
       ],
       details: [
         {
-          title: "Senior Software Engineer",
+          title: "Senior Software Engineer - Tech Lead",
           start: "September 2020",
           end: "Present",
           duties: [
@@ -53,11 +69,17 @@ export const Career = () => {
     },
     {
       companyName: "Smartbox Group.",
-      companyIcon:
-        "https://media-exp1.licdn.com/dms/image/C560BAQFF-1fwHIT9AQ/company-logo_100_100/0/1519897341882?e=1626307200&v=beta&t=8Z1JyUqJqV9KNWV4PJS8SXCn2-W5AxGhKeW9BMBjxfM",
+      companyIcon: imageMapper.get("smartbox").publicURL,
       start: "March 2018",
       end: "July 2019",
-      skills: ["JavaScript", "Vue.js", "Typescript", "PHP", "MySQL", "Docker"],
+      skills: [
+        imageMapper.get("javascript"),
+        imageMapper.get("vue.js"),
+        imageMapper.get("typescript"),
+        imageMapper.get("php"),
+        imageMapper.get("mysql"),
+        imageMapper.get("docker"),
+      ],
       details: [
         {
           title: "Frontend Engineer",
@@ -74,11 +96,15 @@ export const Career = () => {
     },
     {
       companyName: "Vaimo Finland",
-      companyIcon:
-        "https://media-exp1.licdn.com/dms/image/C560BAQEoQquyRBqxCg/company-logo_100_100/0/1519884471543?e=1626307200&v=beta&t=CETkg8X7b8Ah02EDz7YkTknNmbbcCIRD3aIYxiKZt-Y",
+      companyIcon: imageMapper.get("vaimo").publicURL,
       start: "April 2016",
       end: "March 2018",
-      skills: ["JavaScript", "PHP", "MySQL", "Redis"],
+      skills: [
+        imageMapper.get("javascript"),
+        imageMapper.get("php"),
+        imageMapper.get("mysql"),
+        imageMapper.get("redis"),
+      ],
       details: [
         {
           title: "Software Developer",
