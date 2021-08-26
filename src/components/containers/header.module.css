@@ -6,6 +6,10 @@
   flex-shrink: 0;
 }
 
+.header-container a {
+  text-decoration: none;
+}
+
 .header-nav {
   display: flex;
 }

@@ -36,6 +36,7 @@ export default function Page(props) {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
+          background: "#ffeaa7",
         }}
       >
         <Header name={props.name} />

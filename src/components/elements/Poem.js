@@ -103,8 +103,15 @@ export default function Poem() {
           </Row>
         </div>
       )}
-      <Button onClick={fetchData} size="medium">
-        Randomize poem
+      <Button
+        onClick={fetchData}
+        size="medium"
+        style={{
+          border: "1px solid #333",
+          color: "#333",
+        }}
+      >
+        Fetch a poem!
       </Button>
     </div>
   )

@@ -6,9 +6,6 @@ import * as style from "./header.module.css"
 const NavBar = () => (
   <nav role="navigation" aria-label="global" className={style.headerNav}>
     <div className={style.headerNavItem}>
-      <StyledLink to="/about">Resume</StyledLink>
-    </div>
-    <div className={style.headerNavItem}>
       <StyledLink to="/cv">CV</StyledLink>
     </div>
     <div className={style.headerNavItem}>

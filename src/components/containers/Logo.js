@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <Link to="/">
       <div className={style.logoContainer}>
-        <div className={style.circle} />
+        <div className={style.circle}>K</div>
       </div>
     </Link>
   )
