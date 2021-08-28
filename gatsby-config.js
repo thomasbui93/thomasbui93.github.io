@@ -40,29 +40,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/about/*`],
-        runtimeCaching: [
-          {
-            urlPattern:
-              /^https:\/\/griffin-me\.herokuapp\.com\/api\/poem\/random/,
-            handler: "cacheFirst",
-            options: {
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-              cacheName: "dug2020-poem",
-              expiration: {
-                maxAgeSeconds: 60 * 60,
-                maxEntries: 30,
-              },
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-178235268-1",
