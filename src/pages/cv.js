@@ -14,7 +14,7 @@ export default function CV() {
           width: "100vw",
           minHeight: "100vh",
         }}
-        src="https://drive.google.com/file/d/1jCIRJHTbFxtZCMcyAFmmj09penl6yJ_D/preview"
+        src="https://drive.google.com/file/d/1k4h69tjYDwJUPFpqn1wbg1MYmyIo2gsj/preview"
         width="100vw"
         height="100vh"
       />

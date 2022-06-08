@@ -4,7 +4,7 @@ import * as style from "./logo.module.css"
 
 export default function Logo() {
   return (
-    <Link to="/">
+    <Link to="/" className={style.logoLink}>
       <div className={style.logoContainer}>
         <div className={style.circle}>K</div>
       </div>

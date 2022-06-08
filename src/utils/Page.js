@@ -1,9 +1,25 @@
 import React from "react"
-import { ThemeProvider } from "@zendeskgarden/react-theming"
+import { ThemeProvider, DEFAULT_THEME } from "@zendeskgarden/react-theming"
+import {
+  Chrome,
+  Body,
+  Header,
+  HeaderItem,
+  HeaderItemText
+} from '@zendeskgarden/react-chrome'
 import "@zendeskgarden/css-bedrock/dist/index.css"
-import Header from "../components/containers/Header"
-import Footer from "../components/containers/Footer"
 import { Helmet } from "react-helmet"
+import Logo from "../components/containers/Logo"
+import StyledLink from "../components/elements/StyledLink"
+import Footer from "../components/containers/Footer"
+import * as style from "./page.module.css"
+
+const contentStyle = {
+  minWidth: "100vw",
+  minHeight: "calc(100% - 150px)",
+  display: "flex",
+  flexFlow: "column"
+}
 
 export default function Page(props) {
   const metadata = {
@@ -25,34 +41,35 @@ export default function Page(props) {
   }
 
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={DEFAULT_THEME}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>{metadata[props.name].title}</title>
         <link rel="canonical" href="http://www.buidangkhoa.com" />
       </Helmet>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          background: "#ffeaa7",
-        }}
-      >
-        <Header name={props.name} />
-        <div
-          style={{
-            position: "relative",
-            flexGrow: 1,
-            display: "flex",
-            //justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          {props.children}
-        </div>
-        <Footer name={props.name} />
-      </div>
+      <Chrome>
+        <Body>
+          <Header isStandalone>
+            <HeaderItem hasLogo>
+              <Logo />
+            </HeaderItem>
+            <HeaderItem>
+              <StyledLink to="/cv">
+                <HeaderItemText>Resume</HeaderItemText>
+              </StyledLink>
+            </HeaderItem>
+            <HeaderItem>
+              <StyledLink to="/random">
+                <HeaderItemText>Random</HeaderItemText>
+              </StyledLink>
+            </HeaderItem>
+          </Header>
+          <div className={style.contentWrapper}>
+            {props.children}
+          </div>
+          <Footer/>
+        </Body>
+      </Chrome>
     </ThemeProvider>
   )
 }

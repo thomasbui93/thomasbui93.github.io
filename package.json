@@ -3,7 +3,7 @@
   "private": false,
   "description": "Gatsby portfolio",
   "version": "0.1.0",
-  "license": "0BSD",
+  "license": "BSD",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -17,6 +17,7 @@
     "@zendeskgarden/css-bedrock": "^9.0.0",
     "@zendeskgarden/react-avatars": "^8.52.0",
     "@zendeskgarden/react-buttons": "^8.52.0",
+    "@zendeskgarden/react-chrome": "^8.52.0",
     "@zendeskgarden/react-grid": "^8.52.0",
     "@zendeskgarden/react-loaders": "^8.52.0",
     "@zendeskgarden/react-theming": "^8.52.0",
