@@ -1,6 +1,6 @@
 import React from "react"
 import Page from "../utils/Page"
-import Quote from "../components/elements/Quote"
+import { QuoteComponent as Quote } from "../components/elements/Quote"
 import { PageName } from "../utils/constant"
 
 const Random: React.FC = () => (
@@ -15,4 +15,4 @@ const Random: React.FC = () => (
   </Page>
 )
 
-export default Random 
+export default Random

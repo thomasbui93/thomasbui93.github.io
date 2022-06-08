@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 
 export type Quote = {
-  message: string,
+  message: string
   author: string
 }
 

@@ -5,8 +5,8 @@ import {
   Body,
   Header,
   HeaderItem,
-  HeaderItemText
-} from '@zendeskgarden/react-chrome'
+  HeaderItemText,
+} from "@zendeskgarden/react-chrome"
 import "@zendeskgarden/css-bedrock/dist/index.css"
 import { Helmet } from "react-helmet"
 import { Logo } from "../components/containers/Logo"
@@ -19,10 +19,7 @@ type PageProps = {
   name: PageName
 }
 
-
 export default function Page(props: PageProps & PropsWithChildren) {
-  
-
   return (
     <ThemeProvider theme={DEFAULT_THEME}>
       <Helmet>
@@ -47,10 +44,8 @@ export default function Page(props: PageProps & PropsWithChildren) {
               </StyledLink>
             </HeaderItem>
           </Header>
-          <div className={style.contentWrapper}>
-            {props.children}
-          </div>
-          <Footer/>
+          <div className={style.contentWrapper}>{props.children}</div>
+          <Footer />
         </Body>
       </Chrome>
     </ThemeProvider>

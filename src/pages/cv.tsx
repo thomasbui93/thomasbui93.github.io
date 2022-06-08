@@ -46,4 +46,4 @@ const CV: React.FC = () => {
   )
 }
 
-export default CV;
+export default CV

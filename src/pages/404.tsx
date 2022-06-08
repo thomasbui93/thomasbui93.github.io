@@ -1,9 +1,9 @@
 import React from "react"
 import Page from "../utils/Page"
 import { XXXL } from "@zendeskgarden/react-typography"
-import { PageName } from "../utils/constant";
+import { PageName } from "../utils/constant"
 
-const NotFound: React.FC = () =>  (
+const NotFound: React.FC = () => (
   <Page name={PageName.NOT_FOUND}>
     <div style={{ textAlign: "center" }}>
       <XXXL isBold>Page not found.</XXXL>
@@ -11,4 +11,4 @@ const NotFound: React.FC = () =>  (
   </Page>
 )
 
-export default NotFound;
+export default NotFound

@@ -26,7 +26,7 @@ module.exports = {
         display: `standalone`,
         icon: `src/images/logo.png`,
       },
-    }
+    },
   ],
   proxy: {
     prefix: "/api",
