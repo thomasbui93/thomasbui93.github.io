@@ -1,6 +1,11 @@
 import fetch from "node-fetch"
 
-const getQuote = async () => {
+export type Quote = {
+  message: string,
+  author: string
+}
+
+const getQuote = async (): Promise<Quote> => {
   try {
     const response = await fetch(
       process.env.QUOTE_URL || "https://quotes.rest/qod?language=en"
@@ -14,8 +19,8 @@ const getQuote = async () => {
       message: quoteData.quote,
       author: quoteData.author,
     }
-  } catch (ex) {
-    console.log("Failed to fetch quote: ", ex.message)
+  } catch (ex: any) {
+    console.error("Failed to fetch quote: ", ex.message)
     return {
       message: "In the end, it does not matter.",
       author: "Unknown",

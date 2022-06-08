@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react"
 import * as style from "./quote.module.css"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
-import getQuote from "../../service/quote"
+import getQuote, { Quote } from "../../service/quote"
 
-export default function Quote() {
+const QuoteComponent: React.FC = () => {
   const [isLoading, setLoad] = useState(true)
-  const [quote, setQuote] = useState(null)
+  const [quote, setQuote] = useState<Quote>({
+    message: '',
+    author: ''
+  })
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,3 +53,5 @@ export default function Quote() {
     </div>
   )
 }
+
+export default QuoteComponent

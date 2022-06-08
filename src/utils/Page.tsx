@@ -1,4 +1,4 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 import { ThemeProvider, DEFAULT_THEME } from "@zendeskgarden/react-theming"
 import {
   Chrome,
@@ -9,42 +9,25 @@ import {
 } from '@zendeskgarden/react-chrome'
 import "@zendeskgarden/css-bedrock/dist/index.css"
 import { Helmet } from "react-helmet"
-import Logo from "../components/containers/Logo"
+import { Logo } from "../components/containers/Logo"
 import StyledLink from "../components/elements/StyledLink"
-import Footer from "../components/containers/Footer"
+import { Footer } from "../components/containers/Footer"
+import { PageName } from "./constant"
 import * as style from "./page.module.css"
 
-const contentStyle = {
-  minWidth: "100vw",
-  minHeight: "calc(100% - 150px)",
-  display: "flex",
-  flexFlow: "column"
+type PageProps = {
+  name: PageName
 }
 
-export default function Page(props) {
-  const metadata = {
-    cv: {
-      title: "Khoa Bui's Resumé",
-    },
-    home: {
-      title: "Khoa Bui, Software Engineer.",
-    },
-    about: {
-      title: "About me.",
-    },
-    random: {
-      title: "Random stuff.",
-    },
-    notFound: {
-      title: "Page not found.",
-    },
-  }
+
+export default function Page(props: PageProps & PropsWithChildren) {
+  
 
   return (
     <ThemeProvider theme={DEFAULT_THEME}>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{metadata[props.name].title}</title>
+        <title>{props.name}</title>
         <link rel="canonical" href="http://www.buidangkhoa.com" />
       </Helmet>
       <Chrome>

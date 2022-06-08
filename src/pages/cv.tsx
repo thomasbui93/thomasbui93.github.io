@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import Page from "../utils/Page"
 import { Spinner } from "@zendeskgarden/react-loaders"
 import { Row, Col } from "@zendeskgarden/react-grid"
+import { PageName } from "../utils/constant"
 
-export default function CV() {
+const CV: React.FC = () => {
   const [isLoading, setLoading] = useState(true)
   return (
-    <Page name="cv">
+    <Page name={PageName.CV}>
       <iframe
         title="cv-iframe"
         onLoad={() => setLoading(false)}
@@ -44,3 +45,5 @@ export default function CV() {
     </Page>
   )
 }
+
+export default CV;
