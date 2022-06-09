@@ -1,0 +1,6 @@
+.content-wrapper {
+  min-width: 100vw;
+  min-height: calc(100% - 150px);
+  display: flex;
+  flex-direction: column;
+}
