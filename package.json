@@ -51,6 +51,6 @@
     "url": "https://github.com/thomasbui93/thomasbui93.github.io/issues"
   },
   "engines": {
-    "node": ">16"
+    "node": "16.x"
   }
 }
