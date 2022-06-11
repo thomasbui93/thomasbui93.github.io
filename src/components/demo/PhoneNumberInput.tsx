@@ -1,5 +1,5 @@
 import { Paragraph, XL } from "@zendeskgarden/react-typography";
-import React, { ChangeEventHandler, KeyboardEventHandler, useRef } from "react"
+import React, { ChangeEventHandler } from "react"
 import { useState } from "react"
 import { memoize } from "../../utils/memoize";
 
