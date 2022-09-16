@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
-import { LG, MD, XL, XXXL } from "@zendeskgarden/react-typography"
+import { MD, XL, XXXL } from "@zendeskgarden/react-typography"
 import styled from "styled-components"
 import { AsyncState, useAsync } from "../../hooks/useAsync"
 import { Button } from "@zendeskgarden/react-buttons"
