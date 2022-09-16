@@ -14,10 +14,16 @@ import StyledLink from "../components/elements/StyledLink"
 import { Footer } from "../components/containers/Footer"
 import { PageName } from "./constant"
 import * as style from "./page.module.css"
+import styled from "styled-components"
 
 type PageProps = {
   name: PageName
 }
+
+const StyledChrome = styled(Chrome)`
+  height: auto;
+  min-height: 100vh;
+`
 
 export default function Page(props: PageProps & PropsWithChildren) {
   return (
@@ -27,7 +33,7 @@ export default function Page(props: PageProps & PropsWithChildren) {
         <title>{props.name}</title>
         <link rel="canonical" href="http://www.buidangkhoa.com" />
       </Helmet>
-      <Chrome>
+      <StyledChrome isFluid={true}>
         <Body>
           <Header isStandalone>
             <HeaderItem hasLogo>
@@ -47,7 +53,7 @@ export default function Page(props: PageProps & PropsWithChildren) {
           <div className={style.contentWrapper}>{props.children}</div>
           <Footer />
         </Body>
-      </Chrome>
+      </StyledChrome>
     </ThemeProvider>
   )
 }

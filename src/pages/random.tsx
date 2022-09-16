@@ -2,6 +2,7 @@ import React from "react"
 import Page from "../utils/Page"
 import { QuoteComponent as Quote } from "../components/elements/Quote"
 import { PageName } from "../utils/constant"
+import { PoemComponent as Poem } from "../components/elements/Poem"
 
 const Random: React.FC = () => (
   <Page name={PageName.RANDOM}>
@@ -11,6 +12,7 @@ const Random: React.FC = () => (
       }}
     >
       <Quote />
+      <Poem />
     </div>
   </Page>
 )
