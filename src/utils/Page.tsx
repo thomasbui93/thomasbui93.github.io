@@ -21,7 +21,7 @@ type PageProps = {
 }
 
 const StyledChrome = styled(Chrome)`
-  height:auto;
+  height: auto;
   min-height: 100vh;
 `
 

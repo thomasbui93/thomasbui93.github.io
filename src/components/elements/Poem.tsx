@@ -1,27 +1,27 @@
 import React, { useState } from "react"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
-import { LG, MD, XL, XXXL} from '@zendeskgarden/react-typography'
-import styled from 'styled-components'
+import { LG, MD, XL, XXXL } from "@zendeskgarden/react-typography"
+import styled from "styled-components"
 import { AsyncState, useAsync } from "../../hooks/useAsync"
 import { Button } from "@zendeskgarden/react-buttons"
 
 const baseUrl = "https://griffin-me.herokuapp.com/api/poem?page="
 
 export type PoemListResponse = {
-  page: number,
-  poems: PoemResponse[],
+  page: number
+  poems: PoemResponse[]
   total: number
 }
 
 export type PoemResponse = {
-  author: string,
-  body: Poem[],
+  author: string
+  body: Poem[]
   title: string
 }
 
 export type Poem = {
-  title: string,
+  title: string
   content: string
 }
 
@@ -35,7 +35,7 @@ export const StyledPoem = styled.div`
   font-size: 1.4em;
   line-height: 1.5em;
   font-weight: 100;
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: "EB Garamond", Georgia, serif;
   width: 350px;
   text-align: left;
 `
@@ -71,7 +71,7 @@ export const PoemLoading: React.FC = () => (
 )
 
 export const PoemBlock: React.FC<PoemBlockProps> = ({
-  poem
+  poem,
 }: PoemBlockProps) => (
   <>
     {poem ? (
@@ -84,14 +84,18 @@ export const PoemBlock: React.FC<PoemBlockProps> = ({
         >
           <StyledPoem>
             <XXXL>{poem.title}</XXXL>
-            <XL style={{textAlign: 'right'}}>{poem.author}</XL>
+            <XL style={{ textAlign: "right" }}>{poem.author}</XL>
             <div>
-              {poem.body.map(item => 
+              {poem.body.map(item => (
                 <StyledPoemContent>
                   <XL>{item.title}</XL>
-                  <MD><span style={{whiteSpace: "pre-line"}}>{item.content}</span></MD>
+                  <MD>
+                    <span style={{ whiteSpace: "pre-line" }}>
+                      {item.content}
+                    </span>
+                  </MD>
                 </StyledPoemContent>
-              )}
+              ))}
             </div>
           </StyledPoem>
         </div>
@@ -106,10 +110,11 @@ export const PoemComponent: React.FC = () => {
   const { execute, status, value } = useAsync<PoemResponse>(getRandomPoem, true)
   const isLoading = status === AsyncState.IDLE || status == AsyncState.PENDING
 
-  return <div>
-    { isLoading ? <PoemLoading /> : <PoemBlock poem={value} /> }
-    <CenteredContainer>
-      <Button
+  return (
+    <div>
+      {isLoading ? <PoemLoading /> : <PoemBlock poem={value} />}
+      <CenteredContainer>
+        <Button
           onClick={execute}
           size="medium"
           style={{
@@ -118,20 +123,21 @@ export const PoemComponent: React.FC = () => {
           }}
         >
           Fetch a poem!
-      </Button>
-    </CenteredContainer>
-  </div>
+        </Button>
+      </CenteredContainer>
+    </div>
+  )
 }
 
-let poemCount = 3863;
+let poemCount = 3863
 
 const getRandomPoem = async (): Promise<PoemResponse> => {
   const randomIndex = Math.floor(Math.random() * poemCount)
   const pageNumber = Math.floor(randomIndex / 20) + 1
-  const index = pageNumber % 20;
-  const response = await fetch(`${baseUrl}${pageNumber}`);
-  const poemsResponse: PoemListResponse = await response.json();
-  poemCount = poemsResponse.total;
+  const index = pageNumber % 20
+  const response = await fetch(`${baseUrl}${pageNumber}`)
+  const poemsResponse: PoemListResponse = await response.json()
+  poemCount = poemsResponse.total
 
   return poemsResponse.poems[index]
 }
