@@ -25,7 +25,7 @@ export type Poem = {
   content: string
 }
 
-export type QuoteBlockProps = {
+export type PoemBlockProps = {
   poem: PoemResponse | null
 }
 
@@ -70,9 +70,9 @@ export const PoemLoading: React.FC = () => (
   </div>
 )
 
-export const PoemBlock: React.FC<QuoteBlockProps> = ({
+export const PoemBlock: React.FC<PoemBlockProps> = ({
   poem
-}: QuoteBlockProps) => (
+}: PoemBlockProps) => (
   <>
     {poem ? (
       <div>
