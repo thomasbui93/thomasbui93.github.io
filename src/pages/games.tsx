@@ -6,7 +6,7 @@ import { MatchMeMatrixComponent } from "../components/elements/MatchMe"
 
 const RandomGames: React.FC = () => (
   <Page name={PageName.GAME}>
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", 'marginBottom': '20px' }}>
       <XL isBold>Games</XL>
     </div>
     <MatchMeMatrixComponent />
