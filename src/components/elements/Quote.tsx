@@ -14,7 +14,7 @@ export const QuoteBlock: React.FC<QuoteBlockProps> = ({
 }: QuoteBlockProps) => (
   <>
     {quote ? (
-      <div className={style.quoteContainer}>
+      <div>
         <div
           style={{
             display: "flex",
