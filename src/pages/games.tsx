@@ -9,7 +9,7 @@ const RandomGames: React.FC = () => (
     <div style={{ textAlign: "center" }}>
       <XL isBold>Games</XL>
     </div>
-    <MatchMeMatrixComponent/>
+    <MatchMeMatrixComponent />
   </Page>
 )
 
