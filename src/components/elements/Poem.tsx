@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Row, Col } from "@zendeskgarden/react-grid"
 import { Skeleton } from "@zendeskgarden/react-loaders"
 import { MD, XL, XXXL } from "@zendeskgarden/react-typography"
