@@ -49,6 +49,11 @@ export default function Page(props: PageProps & PropsWithChildren) {
                 <HeaderItemText>Random</HeaderItemText>
               </StyledLink>
             </HeaderItem>
+            <HeaderItem>
+              <StyledLink to="/games">
+                <HeaderItemText>Games</HeaderItemText>
+              </StyledLink>
+            </HeaderItem>
           </Header>
           <div className={style.contentWrapper}>{props.children}</div>
           <Footer />
