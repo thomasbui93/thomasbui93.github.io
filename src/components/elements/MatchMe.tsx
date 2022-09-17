@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { MD, XL } from "@zendeskgarden/react-typography"
+import { useLocalStorage } from "usehooks-ts"
 
 type MatchMeMatrixProps = {
   edgeTile: number
@@ -36,6 +37,8 @@ const getIndicesSet = (uniqueCount: number): number[] => {
   return shuffle([...indicesSet, ...indicesSet])
 }
 
+const getTime = (seconds: number) => new Date(seconds * 1000).toISOString().substring(14, 19)
+
 const redBackground = "#fab1a0"
 
 export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
@@ -50,6 +53,9 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
       crossed: false,
     }))
   )
+  const [playingTime, setPlayingTime] = useState<number>(0);
+  const [active, setActive] = useState<number[]>([]);
+  const [records, setRecords] = useLocalStorage<{ [key: number]: number }>('records', {});
   useEffect(() => {
     setSource(
       getIndicesSet((edgeTile * edgeTile) / 2).map(index => ({
@@ -59,8 +65,30 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
     )
     setActive([])
     setWin(false)
+    setPlayingTime(0)
   }, [edgeTile, timestamp])
-  const [active, setActive] = useState<number[]>([])
+  useEffect(() => {
+    let interval: NodeJS.Timer | undefined;
+    if (!win) {
+      interval = setInterval(() => {
+        setPlayingTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else if (win) {
+      clearInterval(interval)
+    }
+    return () => clearInterval(interval);
+  }, [win]);
+
+  useEffect(() => {
+    if (!win) return;
+    if (!records[edgeTile] || playingTime < records[edgeTile]) {
+      console.log(playingTime)
+      setRecords({
+        ...records,
+        [edgeTile]: playingTime
+      })
+    }
+  }, [win, playingTime, edgeTile])
 
   const toggle = (index: number) => {
     if (source[index].crossed) return
@@ -79,7 +107,8 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
     ) {
       newSource[newActive[0]].crossed = true
       newSource[newActive[1]].crossed = true
-      setWin(source.filter(({ crossed }) => crossed).length === source.length)
+      const isWinning = source.filter(({ crossed }) => crossed).length === source.length;
+      setWin(isWinning)
       setActive([])
       setSource(newSource)
     } else {
@@ -89,6 +118,9 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
   const blockWidth = 50
 
   return (
+    <>
+    <div><XL>Pokemon Matching</XL></div>
+    { win ? <div>Highest score: {records[edgeTile]}</div> : <div> Playing time: {getTime(playingTime)}</div> }
     <div
       style={{
         width: `${(blockWidth + 10) * edgeTile}px`,
@@ -108,7 +140,7 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
             color: "white",
           }}
         >
-          You won!
+          You won in {getTime(playingTime)}
         </XL>
       ) : (
         source.map(({ id, crossed }, index) => (
@@ -142,6 +174,7 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
         ))
       )}
     </div>
+    </>
   )
 }
 
@@ -235,5 +268,6 @@ export const MatchMeMatrixComponent: React.FC = () => {
         </div>
       </div>
     </div>
+    
   )
 }
