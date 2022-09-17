@@ -37,7 +37,8 @@ const getIndicesSet = (uniqueCount: number): number[] => {
   return shuffle([...indicesSet, ...indicesSet])
 }
 
-const getTime = (seconds: number) => new Date(seconds * 1000).toISOString().substring(14, 19)
+const getTime = (seconds: number) =>
+  new Date(seconds * 1000).toISOString().substring(14, 19)
 
 const redBackground = "#fab1a0"
 
@@ -53,9 +54,12 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
       crossed: false,
     }))
   )
-  const [playingTime, setPlayingTime] = useState<number>(0);
-  const [active, setActive] = useState<number[]>([]);
-  const [records, setRecords] = useLocalStorage<{ [key: number]: number }>('records', {});
+  const [playingTime, setPlayingTime] = useState<number>(0)
+  const [active, setActive] = useState<number[]>([])
+  const [records, setRecords] = useLocalStorage<{ [key: number]: number }>(
+    "records",
+    {}
+  )
   useEffect(() => {
     setSource(
       getIndicesSet((edgeTile * edgeTile) / 2).map(index => ({
@@ -68,24 +72,24 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
     setPlayingTime(0)
   }, [edgeTile, timestamp])
   useEffect(() => {
-    let interval: NodeJS.Timer | undefined;
+    let interval: NodeJS.Timer | undefined
     if (!win) {
       interval = setInterval(() => {
-        setPlayingTime((prevTime) => prevTime + 1);
-      }, 1000);
+        setPlayingTime(prevTime => prevTime + 1)
+      }, 1000)
     } else if (win) {
       clearInterval(interval)
     }
-    return () => clearInterval(interval);
-  }, [win]);
+    return () => clearInterval(interval)
+  }, [win])
 
   useEffect(() => {
-    if (!win) return;
+    if (!win) return
     if (!records[edgeTile] || playingTime < records[edgeTile]) {
       console.log(playingTime)
       setRecords({
         ...records,
-        [edgeTile]: playingTime
+        [edgeTile]: playingTime,
       })
     }
   }, [win, playingTime, edgeTile])
@@ -107,7 +111,8 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
     ) {
       newSource[newActive[0]].crossed = true
       newSource[newActive[1]].crossed = true
-      const isWinning = source.filter(({ crossed }) => crossed).length === source.length;
+      const isWinning =
+        source.filter(({ crossed }) => crossed).length === source.length
       setWin(isWinning)
       setActive([])
       setSource(newSource)
@@ -119,61 +124,67 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
 
   return (
     <>
-    <div><XL>Pokemon Matching</XL></div>
-    { win ? <div>Highest score: {records[edgeTile]}</div> : <div> Playing time: {getTime(playingTime)}</div> }
-    <div
-      style={{
-        width: `${(blockWidth + 10) * edgeTile}px`,
-        height: `${(blockWidth + 10) * edgeTile}px`,
-        display: "flex",
-        flexWrap: "wrap",
-        alignItems: "center",
-        backgroundColor: win ? redBackground : "transparent",
-      }}
-    >
+      <div>
+        <XL>Pokemon Matching</XL>
+      </div>
       {win ? (
-        <XL
-          style={{
-            lineHeight: `${(blockWidth + 10) * edgeTile}px`,
-            textAlign: "center",
-            width: "100%",
-            color: "white",
-          }}
-        >
-          You won in {getTime(playingTime)}
-        </XL>
+        <div>Highest score: {records[edgeTile]}</div>
       ) : (
-        source.map(({ id, crossed }, index) => (
-          <div
-            style={{
-              lineHeight: `${blockWidth}px`,
-              textAlign: "center",
-              width: `${blockWidth}px`,
-              height: `${blockWidth}px`,
-              backgroundColor: crossed ? "grey" : "beige",
-              margin: "5px",
-              cursor: crossed ? "auto" : "pointer",
-              border: `1px solid ${
-                active.indexOf(index) > -1 ? "red" : "transparent"
-              }`,
-            }}
-            key={index}
-            onClick={() => toggle(index)}
-          >
-            <img
-              src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${toImageIndex(
-                id
-              )}.png`}
-              alt={toImageIndex(id)}
-              style={{
-                display:
-                  active.indexOf(index) > -1 || crossed ? "block" : "none",
-              }}
-            />
-          </div>
-        ))
+        <div> Playing time: {getTime(playingTime)}</div>
       )}
-    </div>
+      <div
+        style={{
+          width: `${(blockWidth + 10) * edgeTile}px`,
+          height: `${(blockWidth + 10) * edgeTile}px`,
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          backgroundColor: win ? redBackground : "transparent",
+        }}
+      >
+        {win ? (
+          <XL
+            style={{
+              lineHeight: `${(blockWidth + 10) * edgeTile}px`,
+              textAlign: "center",
+              width: "100%",
+              color: "white",
+            }}
+          >
+            You won in {getTime(playingTime)}
+          </XL>
+        ) : (
+          source.map(({ id, crossed }, index) => (
+            <div
+              style={{
+                lineHeight: `${blockWidth}px`,
+                textAlign: "center",
+                width: `${blockWidth}px`,
+                height: `${blockWidth}px`,
+                backgroundColor: crossed ? "grey" : "beige",
+                margin: "5px",
+                cursor: crossed ? "auto" : "pointer",
+                border: `1px solid ${
+                  active.indexOf(index) > -1 ? "red" : "transparent"
+                }`,
+              }}
+              key={index}
+              onClick={() => toggle(index)}
+            >
+              <img
+                src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${toImageIndex(
+                  id
+                )}.png`}
+                alt={toImageIndex(id)}
+                style={{
+                  display:
+                    active.indexOf(index) > -1 || crossed ? "block" : "none",
+                }}
+              />
+            </div>
+          ))
+        )}
+      </div>
     </>
   )
 }
@@ -268,6 +279,5 @@ export const MatchMeMatrixComponent: React.FC = () => {
         </div>
       </div>
     </div>
-    
   )
 }
