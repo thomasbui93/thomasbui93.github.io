@@ -86,7 +86,6 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
   useEffect(() => {
     if (!win) return
     if (!records[edgeTile] || playingTime < records[edgeTile]) {
-      console.log(playingTime)
       setRecords({
         ...records,
         [edgeTile]: playingTime,
@@ -151,7 +150,9 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
               color: "white",
             }}
           >
-            You won in {getTime(playingTime)}
+            {records[edgeTile] === playingTime
+              ? `New record ${getTime(playingTime)}`
+              : `You won in ${getTime(playingTime)}`}
           </XL>
         ) : (
           source.map(({ id, crossed }, index) => (
