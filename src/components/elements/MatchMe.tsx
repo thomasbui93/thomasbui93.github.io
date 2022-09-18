@@ -123,9 +123,6 @@ export const MatchMeMatrix: React.FC<MatchMeMatrixProps> = ({
 
   return (
     <>
-      <div>
-        <XL>Pokemon Matching</XL>
-      </div>
       {win ? (
         <div>Highest score: {records[edgeTile]}</div>
       ) : (
@@ -214,6 +211,12 @@ export const MatchMeMatrixComponent: React.FC = () => {
   }, [win])
   return (
     <div>
+      <div style={{
+        width: '100%',
+        textAlign: 'center'
+      }}>
+        <XL>Pokemon Matching</XL>
+      </div>
       {edgeCount ? (
         <div
           style={{
