@@ -211,10 +211,12 @@ export const MatchMeMatrixComponent: React.FC = () => {
   }, [win])
   return (
     <div>
-      <div style={{
-        width: '100%',
-        textAlign: 'center'
-      }}>
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
         <XL>Pokemon Matching</XL>
       </div>
       {edgeCount ? (
